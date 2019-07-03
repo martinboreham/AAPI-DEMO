@@ -1,0 +1,51 @@
+{
+  "SKY_JOB": {
+    "Type": "Folder",
+    "ControlmServer": "sqa",
+    "OrderMethod": "Manual",
+    "ActiveRetentionPolicy": "CleanEndedOK",
+    "SiteStandard": "SKY",
+    "SubApplication": "SKY_JOB",
+    "CreatedBy": "emuser",
+    "Application": "SKY_JOB",
+    "When": {
+      "RuleBasedCalendars": {
+        "Included": [
+          "EVERYDAY"
+        ],
+        "EVERYDAY": {
+          "Type": "Calendar:RuleBased",
+          "When": {
+            "DaysRelation": "OR",
+            "WeekDays": [
+              "NONE"
+            ],
+            "MonthDays": [
+              "ALL"
+            ]
+          }
+        }
+      }
+    },
+    "SKY_JOB1": {
+      "Type": "Job:Command",
+      "SubApplication": "SKY_JOB",
+      "EndFolder": true,
+      "Host": "skydemo10",
+      "CreatedBy": "emuser",
+      "RunAs": "ctm",
+      "Application": "SKY_JOB",
+      "Command": "hostname",
+      "When": {
+        "WeekDays": [
+          "NONE"
+        ],
+        "MonthDays": [
+          "ALL"
+        ],
+        "SpecificDates": [],
+        "DaysRelation": "OR"
+      }
+    }
+  }
+}

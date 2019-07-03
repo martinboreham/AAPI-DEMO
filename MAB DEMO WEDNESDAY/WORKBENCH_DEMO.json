@@ -1,0 +1,91 @@
+{
+  "WORKBENCH_DEMO": {
+    "Type": "Folder",
+    "ControlmServer": "workbench",
+    "ActiveRetentionPolicy": "CleanEndedOK",
+    "SubApplication": "WORKBENCH_DEMO",
+    "CreatedBy": "emuser",
+    "Application": "WORKBENCH_DEMO",
+    "When": {
+      "RuleBasedCalendars": {
+        "Included": [
+          "EVERYDAY"
+        ],
+        "EVERYDAY": {
+          "Type": "Calendar:RuleBased",
+          "When": {
+            "DaysRelation": "OR",
+            "WeekDays": [
+              "NONE"
+            ],
+            "MonthDays": [
+              "ALL"
+            ]
+          }
+        }
+      }
+    },
+    "OS_Job#1": {
+      "Type": "Job:Command",
+      "SubApplication": "WORKBENCH_DEMO",
+      "EndFolder": false,
+      "CreatedBy": "emuser",
+      "RunAs": "workbench",
+      "Application": "WORKBENCH_DEMO",
+      "Command": "ls -altr",
+      "When": {
+        "WeekDays": [
+          "NONE"
+        ],
+        "MonthDays": [
+          "ALL"
+        ],
+        "SpecificDates": [],
+        "DaysRelation": "OR"
+      },
+      "eventsToAdd": {
+        "Type": "AddEvents",
+        "Events": [
+          {
+            "Event": "OS_Job#1-TO-OS_Job#2"
+          }
+        ]
+      }
+    },
+    "OS_Job#2": {
+      "Type": "Job:Command",
+      "SubApplication": "WORKBENCH_DEMO",
+      "EndFolder": false,
+      "CreatedBy": "emuser",
+      "RunAs": "workbench",
+      "Application": "WORKBENCH_DEMO",
+      "Command": "ls -altr",
+      "When": {
+        "WeekDays": [
+          "NONE"
+        ],
+        "MonthDays": [
+          "ALL"
+        ],
+        "SpecificDates": [],
+        "DaysRelation": "OR"
+      },
+      "eventsToWaitFor": {
+        "Type": "WaitForEvents",
+        "Events": [
+          {
+            "Event": "OS_Job#1-TO-OS_Job#2"
+          }
+        ]
+      },
+      "eventsToDelete": {
+        "Type": "DeleteEvents",
+        "Events": [
+          {
+            "Event": "OS_Job#1-TO-OS_Job#2"
+          }
+        ]
+      }
+    }
+  }
+}

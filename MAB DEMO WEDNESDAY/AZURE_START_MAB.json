@@ -1,0 +1,48 @@
+{
+  "AZURE_START_TUESDAY": {
+    "Type": "Folder",
+    "ControlmServer": "sqa",
+    "OrderMethod": "Manual",
+    "ActiveRetentionPolicy": "CleanEndedOK",
+    "SiteStandard": "CAPITA",
+    "SubApplication": "AZURE_START_TUESDAY",
+    "CreatedBy": "emuser",
+    "Application": "AZURE_START_TUESDAY",
+    "When": {
+      "RuleBasedCalendars": {
+        "Included": [
+          "EVERYDAY"
+        ],
+        "EVERYDAY": {
+          "Type": "Calendar:RuleBased",
+          "When": {
+            "WeekDays": [
+              "NONE"
+            ]
+          }
+        }
+      }
+    },
+    "AZURE_START_TUESDAY": {
+      "Type": "Job:ApplicationIntegrator:AZURE START",
+      "AI-resourcegroup": "%%resourcegroup",
+      "AI-name": "%%name",
+      "ConnectionProfile": "BOREHAM",
+      "SubApplication": "AZURE_START_TUESDAY",
+      "EndFolder": false,
+      "CreatedBy": "emuser",
+      "RunAs": "BOREHAM",
+      "Application": "AZURE_START_TUESDAY",
+      "When": {
+        "WeekDays": [
+          "NONE"
+        ],
+        "MonthDays": [
+          "ALL"
+        ],
+        "SpecificDates": [],
+        "DaysRelation": "OR"
+      }
+    }
+  }
+}

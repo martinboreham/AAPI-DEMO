@@ -1,0 +1,101 @@
+{
+  "AZURE_STOP_VF": {
+    "Type": "Folder",
+    "ControlmServer": "sqa",
+    "OrderMethod": "Manual",
+    "ActiveRetentionPolicy": "CleanEndedOK",
+    "SiteStandard": "DEMO",
+    "SubApplication": "AZURE_STOP",
+    "CreatedBy": "emuser",
+    "Application": "AZURE_STOP",
+    "When": {
+      "RuleBasedCalendars": {
+        "Included": [
+          "EVERYDAY"
+        ],
+        "EVERYDAY": {
+          "Type": "Calendar:RuleBased",
+          "When": {
+            "WeekDays": [
+              "NONE"
+            ]
+          }
+        }
+      }
+    },
+    "AZURE STOP_Job#1": {
+      "Type": "Job:ApplicationIntegrator:AZURE STOP",
+      "AI-resourcegroup": "MABPOV",
+      "AI-name": "MABPOV2",
+      "ConnectionProfile": "MBOREHAM",
+      "SubApplication": "AZURE_STOP",
+      "EndFolder": false,
+      "Host": "SQA",
+      "CreatedBy": "emuser",
+      "RunAs": "MBOREHAM",
+      "Application": "AZURE_STOP",
+      "When": {
+        "WeekDays": [
+          "NONE"
+        ],
+        "MonthDays": [
+          "ALL"
+        ],
+        "SpecificDates": [],
+        "DaysRelation": "OR"
+      },
+      "eventsToAdd": {
+        "Type": "AddEvents",
+        "Events": [
+          {
+            "Event": "AZURE_STOP_Job#1-TO-AZURE_DEALL_Job#1"
+          }
+        ]
+      }
+    },
+    "AZURE DEALL_Job#1": {
+      "Type": "Job:ApplicationIntegrator:AZURE DEALL",
+      "AI-resourcegroup": "MABPOV",
+      "AI-name": "MABPOV2",
+      "ConnectionProfile": "BOREHAM",
+      "SubApplication": "AZURE_STOP",
+      "EndFolder": false,
+      "CreatedBy": "emuser",
+      "RunAs": "BOREHAM",
+      "Application": "AZURE_STOP",
+      "When": {
+        "WeekDays": [
+          "NONE"
+        ],
+        "MonthDays": [
+          "ALL"
+        ],
+        "SpecificDates": [],
+        "DaysRelation": "OR"
+      },
+      "IfBase:Folder:Output_0": {
+        "Type": "If:Output",
+        "Code": "NOTOK",
+        "Action:SetToOK_0": {
+          "Type": "Action:SetToOK"
+        }
+      },
+      "eventsToWaitFor": {
+        "Type": "WaitForEvents",
+        "Events": [
+          {
+            "Event": "AZURE_STOP_Job#1-TO-AZURE_DEALL_Job#1"
+          }
+        ]
+      },
+      "eventsToDelete": {
+        "Type": "DeleteEvents",
+        "Events": [
+          {
+            "Event": "AZURE_STOP_Job#1-TO-AZURE_DEALL_Job#1"
+          }
+        ]
+      }
+    }
+  }
+}

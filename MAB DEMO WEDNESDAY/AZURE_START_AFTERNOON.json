@@ -1,0 +1,55 @@
+{
+    "Defaults" : {
+        "Application" : "AZURE_TLVLAB",
+        "SubApplication" : "AZURE_TLVLAB_Lab-6",
+        "RunAs" : "workbench",
+        "Host" : "workbench"
+    },
+
+    "WorkbenchSampleFlow": {
+        "Type": "Folder",
+   		"SiteStandard": "",
+   		"ControlmServer" : "workbench",{
+      },
+    "OrderMethod": "Manual",
+    "SubApplication": "AZURE_START",
+    "CreatedBy": "emuser",
+    "Application": "AZURE_START",
+    "When": {
+      "RuleBasedCalendars": {
+        "Included": [
+          "EVERYDAY"
+        ],
+        "EVERYDAY": {
+          "Type": "Calendar:RuleBased",
+          "When": {
+            "WeekDays": [
+              "NONE"
+            ]
+          }
+        }
+      }
+    },
+    "AZURE_START_TUESDAY": {
+      "Type": "Job:ApplicationIntegrator:AZURE START",
+      "AI-resourcegroup": "%%resourcegroup",
+      "AI-name": "%%name",
+      "ConnectionProfile": "BOREHAM",
+      "SubApplication": "AZURE_START",
+      "EndFolder": false,
+      "CreatedBy": "emuser",
+      "RunAs": "BOREHAM",
+      "Application": "AZURE_START",
+      "When": {
+        "WeekDays": [
+          "NONE"
+        ],
+        "MonthDays": [
+          "ALL"
+        ],
+        "SpecificDates": [],
+        "DaysRelation": "OR"
+      }
+    }
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "SKY_DEPLOY": {
+    "Type": "SimpleFolder",
+    "ControlmServer": "sqa",
+    "SiteStandard": "SKY",
+    "OrderMethod": "Manual",
+    "GCP DEPLOY NEW MACHINE": {
+      "Type": "Job:ApplicationIntegrator:GCP DEPLOY",
+      "AI-Instancename": "skydemo12",
+      "AI-zone": "europe-west2-c",
+      "ConnectionProfile": "MBOREHAM",
+      "SubApplication": "SKY_DEPLOY",
+      "EndFolder": true,
+      "Host": "sqa",
+      "CreatedBy": "emuser",
+      "RunAs": "MBOREHAM",
+      "Application": "SKY_DEPLOY",
+      "When": {
+        "WeekDays": [
+          "NONE"
+        ],
+        "MonthDays": [
+          "ALL"
+        ],
+        "SpecificDates": [],
+        "DaysRelation": "OR"
+      },
+      "CaptureOutput_0": {
+        "Type": "Action:CaptureOutput",
+        "Search": "Output",
+        "VariableName": "\\IP",
+        "ForwardBy": {
+          "Columns": "4",
+          "Lines": "4"
+        }
+      },
+      "CaptureOutput_1": {
+        "Type": "Action:CaptureOutput",
+        "Search": "Output",
+        "VariableName": "\\instance",
+        "ForwardBy": {
+          "Lines": "4"
+        }
+      },
+      "eventsToAdd": {
+        "Type": "AddEvents",
+        "Events": [
+          {
+            "Event": "GCP_DEPLOY_NEW_MACHINE-TO-echo_IP"
+          }
+        ]
+      }
+    },
+    "echo IP": {
+      "Type": "Job:Command",
+      "SubApplication": "SKY_DEPLOY",
+      "EndFolder": true,
+      "Host": "sqa",
+      "CreatedBy": "emuser",
+      "RunAs": "Administrator",
+      "Application": "SKY_DEPLOY",
+      "Command": "echo %%IP %%instance >> %WINDIR%\\System32\\Drivers\\Etc\\Hosts",
+      "When": {
+        "WeekDays": [
+          "NONE"
+        ],
+        "MonthDays": [
+          "ALL"
+        ],
+        "SpecificDates": [],
+        "DaysRelation": "OR"
+      },
+      "eventsToWaitFor": {
+        "Type": "WaitForEvents",
+        "Events": [
+          {
+            "Event": "GCP_DEPLOY_NEW_MACHINE-TO-echo_IP"
+          }
+        ]
+      },
+      "eventsToDelete": {
+        "Type": "DeleteEvents",
+        "Events": [
+          {
+            "Event": "GCP_DEPLOY_NEW_MACHINE-TO-echo_IP"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+
+{
+  "AZURE_START_VF": {
+    "Type": "Folder",
+    "ControlmServer": "sqa",
+    "OrderMethod": "Manual",
+    "ActiveRetentionPolicy": "CleanEndedOK",
+    "SiteStandard": "DEMO",
+    "SubApplication": "AZURE_START_VF_WEDNESDAY",
+    "CreatedBy": "emuser",
+    "Application": "AZURE_START_VF_WEDNESDAY",
+    "When": {
+      "RuleBasedCalendars": {
+        "Included": [
+          "EVERYDAY"
+        ],
+        "EVERYDAY": {
+          "Type": "Calendar:RuleBased",
+          "When": {
+            "WeekDays": [
+              "NONE"
+            ]
+          }
+        }
+      }
+    },
+    "AZURE_START_VF": {
+      "Type": "Job:ApplicationIntegrator:AZURE START",
+      "AI-resourcegroup": "MABPOV",
+      "AI-name": "MABPOV2",
+      "ConnectionProfile": "BOREHAM",
+      "SubApplication": "AZURE_START_VF_WEDNESDAY",
+      "EndFolder": false,
+      "CreatedBy": "emuser",
+      "RunAs": "BOREHAM",
+      "Application": "AZURE_START_VF_WEDNESDAY",
+      "When": {
+        "WeekDays": [
+          "NONE"
+        ],
+        "MonthDays": [
+          "ALL"
+        ],
+        "SpecificDates": [],
+        "DaysRelation": "OR"
+      }
+    }
+  }
+}

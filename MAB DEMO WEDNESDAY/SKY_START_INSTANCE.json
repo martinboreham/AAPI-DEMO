@@ -1,0 +1,53 @@
+{
+  "SKY_START_INSTANCE": {
+    "Type": "Folder",
+    "ControlmServer": "sqa",
+    "OrderMethod": "Manual",
+    "ActiveRetentionPolicy": "CleanEndedOK",
+    "SubApplication": "SKY_START_INSTANCE",
+    "CreatedBy": "emuser",
+    "Application": "SKY_START_INSTANCE",
+    "When": {
+      "RuleBasedCalendars": {
+        "Included": [
+          "EVERYDAY"
+        ],
+        "EVERYDAY": {
+          "Type": "Calendar:RuleBased",
+          "When": {
+            "DaysRelation": "OR",
+            "WeekDays": [
+              "NONE"
+            ],
+            "MonthDays": [
+              "ALL"
+            ]
+          }
+        }
+      }
+    },
+    "GCP INSTANCE START": {
+      "Type": "Job:ApplicationIntegrator:GCP INSTANCE START",
+      "AI-StartorStop": "stop",
+      "AI-instancename": "skydemo11",
+      "AI-zone": "europe-west2-c",
+      "ConnectionProfile": "MBOREHAM",
+      "SubApplication": "SKY_START_INSTANCE",
+      "EndFolder": false,
+      "Host": "sqa",
+      "CreatedBy": "emuser",
+      "RunAs": "MBOREHAM",
+      "Application": "SKY_START_INSTANCE",
+      "When": {
+        "WeekDays": [
+          "NONE"
+        ],
+        "MonthDays": [
+          "ALL"
+        ],
+        "SpecificDates": [],
+        "DaysRelation": "OR"
+      }
+    }
+  }
+}

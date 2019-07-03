@@ -1,0 +1,197 @@
+{
+  "MAB_PP_WCM_DEMO_LIVE_THURSDAY_RFC": {
+    "Type": "Folder",
+    "ControlmServer": "psctm",
+    "Description": "Folder",
+    "OrderMethod": "Manual",
+    "SiteStandard": "MAB_STANDARDS",
+    "SubApplication": "MAB_PP_WCM_DEMO_LIVE",
+    "Application": "MAB_PP_WCM_DEMO_LIVE",
+    "MAB_PP_AAPI_CMD_Job": {
+      "Type": "Job:Command",
+      "SubApplication": "MAB_PP_WCM_DEMO_LIVE",
+      "EndFolder": false,
+      "Host": "vl-aus-ctm-cm01.ctm.bmc.com",
+      "Description": "AUTOMATION API DEMO JOB1",
+      "RunAs": "ctmpre9",
+      "Application": "MAB_PP_WCM_DEMO_LIVE",
+      "Command": "_SLEEP 30",
+      "eventsToAdd": {
+        "Type": "AddEvents",
+        "Events": [
+          {
+            "Event": "DataProcessingFlow1_from_MAB_PP_AAPI_FLOW_DEMO_MAB_PP_AAPI_CMD_Job_to_MAB_PP_AAPI_FLOW_DEMO_MAB_PP_AAPI_ScriptJob-183"
+          }
+        ]
+      }
+    },
+    "MAB_PP_AAPI_CMD_JOB10": {
+      "Type": "Job:Command",
+      "SubApplication": "MAB_PP_WCM_DEMO_LIVE",
+      "EndFolder": false,
+      "CreatedBy": "mboreham",
+      "Description": "BLAH",
+      "RunAs": "ctmpre9",
+      "Application": "MAB_PP_WCM_DEMO_LIVE",
+      "Command": "_SLEEP 30",
+      "When": {
+        "WeekDays": [
+          "NONE"
+        ],
+        "MonthDays": [
+          "ALL"
+        ],
+        "SpecificDates": [],
+        "DaysRelation": "OR"
+      },
+      "eventsToAdd": {
+        "Type": "AddEvents",
+        "Events": [
+          {
+            "Event": "MAB_PP_AAPI_CMD_JOB10-TO-MAB_PP_AAPI_ScriptJob3-183"
+          }
+        ]
+      }
+    },
+    "MAB_PP_AAPI_CMD_Job2": {
+      "Type": "Job:Command",
+      "SubApplication": "MAB_PP_WCM_DEMO_LIVE",
+      "EndFolder": false,
+      "Host": "vl-aus-ctm-cm01.ctm.bmc.com",
+      "Description": "AUTOMATION API DEMO JOB2",
+      "RunAs": "ctmpre9",
+      "Application": "MAB_PP_WCM_DEMO_LIVE",
+      "Command": "_SLEEP 100"
+    },
+    "MAB_PP_AAPI_CMD_JOB20": {
+      "Type": "Job:Command",
+      "SubApplication": "MAB_PP_WCM_DEMO_LIVE",
+      "EndFolder": false,
+      "Host": "vl-aus-ctm-cm01.ctm.bmc.com",
+      "Description": "New job for prod",
+      "RunAs": "ctmpre9",
+      "Application": "MAB_PP_WCM_DEMO_LIVE",
+      "Command": "_SLEEP 100",
+      "eventsToWaitFor": {
+        "Type": "WaitForEvents",
+        "Events": [
+          {
+            "Event": "DataProcessingFlow3_from_MAB_PP_AAPI_FLOW_DEMO_MAB_PP_AAPI_CMD_Job3_to_MAB_PP_AAPI_FLOW_DEMO_MAB_PP_AAPI_ScriptJob3-183"
+          },
+          {
+            "Event": "MAB_PP_AAPI_JOB10-TO-MAB_PP_AAPI_ScriptJob3-183"
+          },
+          {
+            "Event": "MAB_PP_AAPI_CMD_JOB10-TO-MAB_PP_AAPI_ScriptJob3-183"
+          }
+        ]
+      },
+      "eventsToAdd": {
+        "Type": "AddEvents",
+        "Events": [
+          {
+            "Event": "DataProcessingFlow3_from_MAB_PP_AAPI_FLOW_DEMO_MAB_PP_AAPI_ScriptJob3_to_MAB_PP_AAPI_FLOW_DEMO_MAB_PP_AAPI_ScriptJob4-183"
+          }
+        ]
+      },
+      "eventsToDelete": {
+        "Type": "DeleteEvents",
+        "Events": [
+          {
+            "Event": "DataProcessingFlow3_from_MAB_PP_AAPI_FLOW_DEMO_MAB_PP_AAPI_CMD_Job3_to_MAB_PP_AAPI_FLOW_DEMO_MAB_PP_AAPI_ScriptJob3-183"
+          },
+          {
+            "Event": "MAB_PP_AAPI_JOB10-TO-MAB_PP_AAPI_ScriptJob3-183"
+          },
+          {
+            "Event": "MAB_PP_AAPI_CMD_JOB10-TO-MAB_PP_AAPI_ScriptJob3-183"
+          }
+        ]
+      }
+    },
+    "MAB_PP_AAPI_CMD_Job3": {
+      "Type": "Job:Command",
+      "SubApplication": "MAB_PP_WCM_DEMO_LIVE",
+      "EndFolder": false,
+      "Host": "vl-aus-ctm-cm01.ctm.bmc.com",
+      "Description": "AUTOMATION API DEMO JOB3_",
+      "RunAs": "ctmpre9",
+      "Application": "MAB_PP_WCM_DEMO_LIVE",
+      "Command": "_SLEEP 60",
+      "eventsToAdd": {
+        "Type": "AddEvents",
+        "Events": [
+          {
+            "Event": "DataProcessingFlow3_from_MAB_PP_AAPI_FLOW_DEMO_MAB_PP_AAPI_CMD_Job3_to_MAB_PP_AAPI_FLOW_DEMO_MAB_PP_AAPI_ScriptJob3-183"
+          }
+        ]
+      }
+    },
+    "MAB_PP_AAPI_ScriptJob": {
+      "Type": "Job:Command",
+      "SubApplication": "MAB_PP_WCM_DEMO_LIVE",
+      "EndFolder": false,
+      "Host": "vl-aus-ctm-cm01.ctm.bmc.com",
+      "Description": "AUTOMATION API DEMO JOB2",
+      "RunAs": "ctmpre9",
+      "Application": "MAB_PP_WCM_DEMO_LIVE",
+      "Command": "_SLEEP 70",
+      "eventsToWaitFor": {
+        "Type": "WaitForEvents",
+        "Events": [
+          {
+            "Event": "DataProcessingFlow1_from_MAB_PP_AAPI_FLOW_DEMO_MAB_PP_AAPI_CMD_Job_to_MAB_PP_AAPI_FLOW_DEMO_MAB_PP_AAPI_ScriptJob-183"
+          }
+        ]
+      },
+      "eventsToAdd": {
+        "Type": "AddEvents",
+        "Events": [
+          {
+            "Event": "DataProcessingFlow1_from_MAB_PP_AAPI_FLOW_DEMO_MAB_PP_AAPI_ScriptJob_to_MAB_PP_AAPI_FLOW_DEMO_MAB_PP_AAPI_ScriptJob4-183"
+          }
+        ]
+      },
+      "eventsToDelete": {
+        "Type": "DeleteEvents",
+        "Events": [
+          {
+            "Event": "DataProcessingFlow1_from_MAB_PP_AAPI_FLOW_DEMO_MAB_PP_AAPI_CMD_Job_to_MAB_PP_AAPI_FLOW_DEMO_MAB_PP_AAPI_ScriptJob-183"
+          }
+        ]
+      }
+    },
+    "MAB_PP_AAPI_ScriptJob4": {
+      "Type": "Job:Command",
+      "SubApplication": "MAB_PP_WCM_DEMO_LIVE",
+      "EndFolder": false,
+      "Host": "vl-aus-ctm-cm01.ctm.bmc.com",
+      "Description": "BLAH",
+      "RunAs": "ctmpre9",
+      "Application": "MAB_PP_WCM_DEMO_LIVE",
+      "Command": "_SLEEP 100",
+      "eventsToWaitFor": {
+        "Type": "WaitForEvents",
+        "Events": [
+          {
+            "Event": "DataProcessingFlow1_from_MAB_PP_AAPI_FLOW_DEMO_MAB_PP_AAPI_ScriptJob_to_MAB_PP_AAPI_FLOW_DEMO_MAB_PP_AAPI_ScriptJob4-183"
+          },
+          {
+            "Event": "DataProcessingFlow3_from_MAB_PP_AAPI_FLOW_DEMO_MAB_PP_AAPI_ScriptJob3_to_MAB_PP_AAPI_FLOW_DEMO_MAB_PP_AAPI_ScriptJob4-183"
+          }
+        ]
+      },
+      "eventsToDelete": {
+        "Type": "DeleteEvents",
+        "Events": [
+          {
+            "Event": "DataProcessingFlow1_from_MAB_PP_AAPI_FLOW_DEMO_MAB_PP_AAPI_ScriptJob_to_MAB_PP_AAPI_FLOW_DEMO_MAB_PP_AAPI_ScriptJob4-183"
+          },
+          {
+            "Event": "DataProcessingFlow3_from_MAB_PP_AAPI_FLOW_DEMO_MAB_PP_AAPI_ScriptJob3_to_MAB_PP_AAPI_FLOW_DEMO_MAB_PP_AAPI_ScriptJob4-183"
+          }
+        ]
+      }
+    }
+  }
+}
