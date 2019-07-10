@@ -1,4 +1,12 @@
 {
-  "runId": "17b9dfc8-7300-4b53-80aa-e863d6d4467b",
-  "statusURI": "https://18.184.104.196:8443/automation-api/run/status/17b9dfc8-7300-4b53-80aa-e863d6d4467b"
+  "errors": [
+    {
+      "message": "Missing required field",
+      "id": "Validation10004",
+      "item": "Job: AZURE_START_VF/AZURE_START_VF -> Description",
+      "file": "AZURE_START_VF_0800.json",
+      "line": 27,
+      "col": 54
+    }
+  ]
 }
