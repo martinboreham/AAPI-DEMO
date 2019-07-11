@@ -1,0 +1,56 @@
+{
+"DeployDescriptor":
+  [
+    {
+      "Property" :"mboreham",
+      "Assign" : "tmonte"
+    },
+    {
+      "Property" :"Host",
+      "Assign" : "LinRunners"
+    },
+    {
+      "ApplyOn" : {
+        "Type":"Folder"
+      },
+      "Property" :"SiteStandard",
+      "Assign" : "TLVLAB"
+    },
+    {
+      "ApplyOn" : {
+        "Type":"Folder"
+      },
+      "Property" :"ControlmServer",
+      "Assign" : "ctmserver"
+    },    
+    {
+      "ApplyOn" : {
+       "Type":"Folder"
+      },
+      "Property" :"@",
+      "Replace" : [ {"(.*)" : "MAB_TLVLAB_Lab-06_STAGING_$1"} ]
+    },
+    {
+      "ApplyOn" : {
+       "Type":"Job", 
+		"@" : "CleanUpTheMess.*"
+      },
+      "Property" :"Command",
+      "Replace" : [ {"(.*)/home/workbench/ctm/runtime/(.*)/home/workbench/ctm/runtime/(.*)/home/workbench/ctm/runtime/(.*)" : "$1$2$3$4"} ]
+    },
+    {
+      "ApplyOn" : {
+       "Type":"Job",
+		"@" : "DoSometingWithIt.*"
+      },
+      "Property" :"Command",
+      "Replace" : [ {"(.*)/home/workbench/ctm/runtime/(.*)/home/workbench/ctm/runtime/(.*)/home/workbench/ctm/runtime/(.*)/home/workbench/ctm/runtime/(.*)/home/workbench/ctm/runtime/(.*)/home/workbench/ctm/runtime/(.*)" : "$1$2$3$4$5$6$7"} ]
+    },
+        
+    {
+      "Property" :"Command",
+      "Replace" : [ {"(.*)/home/workbench/ctm/runtime/(.*)" : "$1$2"} ]
+    }
+  ]
+}
+
