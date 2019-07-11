@@ -54,7 +54,8 @@
          
 		"ThisOneWillFail" :{
 			"Type": "Job:Command",
-          	"Command": "THIS WILLL FAIL"
+			"Description": "description",
+          	"Command": "THIS WILLLL FAIL"
          },
          			
         "Flow1": {
