@@ -1,4 +1,5 @@
 {
-  "runId": "0b5242eb-263d-4619-9563-4fb483a5d39e",
-  "statusURI": "https://18.184.104.196:8443/automation-api/run/status/0b5242eb-263d-4619-9563-4fb483a5d39e"
+  "runId": "60b28cd5-e908-4674-b246-761a03e280f9",
+  "statusURI": "https://localhost:8443/automation-api/run/status/60b28cd5-e908-4674-b246-761a03e280f9?token=D95C949079FCD51511CCB7F29F55F405F2DCF4306F4A8C489539FC7846962CB2F681E08713E5EE10491D95DFCDEB4D4000C1CD28FA9E6C72D03F4E6430C33BBE",
+  "monitorPageURI": "https://localhost:8443/SelfService#Workbench:runid=60b28cd5-e908-4674-b246-761a03e280f9&title=sample.json"
 }
