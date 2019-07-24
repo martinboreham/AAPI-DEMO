@@ -54,8 +54,8 @@
          
 		"ThisOneWillFail" :{
 			"Type": "Job:Command",
-			"Description": "description",
-          	"Command": "ls -altr"
+			"Description": "descriptiooon",
+          	"Command": "THIS ONE WILL FAIL"
          },
          			
         "Flow1": {
