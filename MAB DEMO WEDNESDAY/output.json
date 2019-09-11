@@ -1,4 +1,10 @@
 {
-  "runId": "0f6bd2a6-5b23-4d96-8979-0de9f45e8690",
-  "statusURI": "https://18.184.104.196:8443/automation-api/run/status/0f6bd2a6-5b23-4d96-8979-0de9f45e8690"
+  "errors": [
+    {
+      "message": "Unexpected character ('{' (code 123)): was expecting double-quote to start field name",
+      "file": "AZURE_START_AFTERNOON.json",
+      "line": 12,
+      "col": 38
+    }
+  ]
 }
