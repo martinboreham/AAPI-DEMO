@@ -31,8 +31,8 @@
       "SubApplication": "AZURE_START",
       "EndFolder": false,
       "CreatedBy": "emuser",
-      "Description": "descriiption",
-      "RunAs": "BOREHAM",
+            "RunAs": "BOREHAM",
+       
       "Application": "AZURE_START",
       "When": {
         "WeekDays": [
