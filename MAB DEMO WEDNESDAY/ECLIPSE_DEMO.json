@@ -6,14 +6,14 @@
     "OrderMethod": "Manual",
     "SiteStandard": "DEMO",
     "SubApplication": "MAB_PP_WCM_DEMO_LIVE",
-    "Application": "MAX_PP_WCM_DEMO_LIVE",
+    "Application": "MAB_PP_WCM_DEMO_LIVE",
     "MAB_PP_AAPI_CMD_Job": {
       "Type": "Job:Command",
       "SubApplication": "MAB_PP_WCM_DEMO_LIVE",
       "EndFolder": false,
       "Description": "AUTOMATION API DEMOo JOB1",
       "RunAs": "ctmpre9",
-      "Application": "MAX_PP_WCM_DEMO_LIVE",
+      "Application": "MAB_PP_WCM_DEMO_LIVE",
       "Command": "_SLEEP 30",
       "eventsToAdd": {
         "Type": "AddEvents",
