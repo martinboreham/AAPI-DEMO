@@ -1,10 +1,10 @@
 {
   "MAB_PP_WCM_DEMO_LIVE_THURSDAY_RFC": {
     "Type": "Folder",
-    "ControlmServer": "psctm",
+    "ControlmServer": "sqa",
     "Description": "Folder",
     "OrderMethod": "Manual",
-    "SiteStandard": "MAB_STANDARDS",
+    "SiteStandard": "DEMO",
     "SubApplication": "MAB_PP_WCM_DEMO_LIVE",
     "Application": "MAB_PP_WCM_DEMO_LIVE",
     "MAB_PP_AAPI_CMD_Job": {
